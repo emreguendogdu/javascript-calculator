@@ -1,4 +1,28 @@
-brew
-html {
-
+$sky: #CEB4A7;
+$snow: #A5A0AB;
+$tree: #5F514F;
+$background: #202124;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#calculator-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background;
+}
+#calculator {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+#calculator button {
+    display: flex;
+    flex: 1 0 21%;
+    justify-content: center;
+    font-size: 2rem;
 }

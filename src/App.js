@@ -1,9 +1,17 @@
-import './App.css';
+import './App.scss';
 
 export default function App() {
   return (
     <>
-    <div id="calculator">
+    <div id="calculator-container">
+      <div id="calculator">
+      <p id="display"></p>
+      <button id="clear">C</button>
+      <button id="add">+</button>
+      <button id="subtract">-</button>
+      <button id="multiply">x</button>
+      <button id="divide">÷</button>
+      <button id="equals">=</button>
       <button id="zero">0</button>
       <button id="one">1</button>
       <button id="two">2</button>
@@ -15,13 +23,7 @@ export default function App() {
       <button id="eight">8</button>
       <button id="nine">9</button>
       <button id='decimal'>.</button>
-      <button id="clear">C</button>
-      <button id="add">+</button>
-      <button id="subtract">-</button>
-      <button id="multiply">x</button>
-      <button id="divide">÷</button>
-    <button id="equals">=</button>
-    <p id="display"></p>
+      </div>
     </div>
     </>
   );
