@@ -2,6 +2,7 @@ $sky: #CEB4A7;
 $snow: #A5A0AB;
 $tree: #5F514F;
 $background: #202124;
+$calc-border: 10px solid $sky;
 * {
     margin: 0;
     padding: 0;
@@ -19,10 +20,14 @@ $background: #202124;
     display: flex;
     flex-direction: column;
     text-align: center;
+    border: $calc-border;
+    border-radius: 8%;
 }
 #display {
     color: white;
     font-size: 2rem;
+    border-bottom: $calc-border;
+    padding: 10px 0;
 }
 #button-container {
     display: flex;
