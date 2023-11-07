@@ -17,8 +17,17 @@ $background: #202124;
 }
 #calculator {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     text-align: center;
+}
+#display {
+    color: white;
+    font-size: 2rem;
+}
+#button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 #calculator button {
     display: flex;
