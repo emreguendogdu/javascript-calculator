@@ -3,10 +3,13 @@ $snow: #A5A0AB;
 $tree: #5F514F;
 $background: #202124;
 $calc-border: 15px solid darken($sky, 15);
+$calc-border-hover: 15px solid $tree;
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 body {
     width: 100vw;
@@ -24,7 +27,7 @@ body {
         text-align: center;
         border: $calc-border;
         border-radius: 8%;
-        #display {
+        #display-container {
             display: flex;
             flex-direction: column;
             max-width: 100%;
