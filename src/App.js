@@ -75,8 +75,9 @@ function App () {
   // Use % button to get the percentage 
   if (key === "%") {
     if (display !== "") {
-      setDisplay((display * 0.01).toString());
-      setTempDisplay((display * 0.01).toString());
+      let percValue = (display * 0.01).toFixed(4).toString();
+      setDisplay(percValue);
+      setTempDisplay(percValue);
       return;
     }
     return;
