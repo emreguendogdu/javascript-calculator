@@ -27,6 +27,7 @@ body {
         #display {
             display: flex;
             flex-direction: column;
+            max-width: 100%;
             border-bottom: $calc-border;
             padding: 5px 0;
             span {
