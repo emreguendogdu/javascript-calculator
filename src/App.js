@@ -91,23 +91,21 @@ function App () {
     return;
   }
 }
+
 // 5 * - + 5 must be 10;
 // 5 * - 5 must be -25;
-
 // If last key is ops, and the key before is also ops
   if (ops.includes(key) && ops.includes(display.slice(-1))) {
     if (key === "-" && display.slice(-1) !== "-") {
       setDisplay(display => display + key);
       return;
-    } else if (key !== "-" && display.slice(-1) === "-") {
+    } else if (key !== "-" && display.slice(-1) === "-" && ops.includes(display.slice(-2, -1))) {
       setDisplay(display.slice(0, -2) + key);
       return;
     } else {
       setDisplay(display.slice(0, -1) + key);
       return;
     }
-    // Slice the old one, add the new one
-    
   }
 
   // Set display to tempdisplay when = or enter is pressed

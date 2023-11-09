@@ -2,7 +2,7 @@ $sky: #CEB4A7;
 $snow: #A5A0AB;
 $tree: #5F514F;
 $background: #202124;
-$calc-border: 2rem solid lighten($background, 10);
+$calc-border: 2rem solid lighten($background, 8);
 $calc-border-hover: 2rem solid $tree;
 
 * {
