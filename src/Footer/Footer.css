@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+}
+
+footer .text {
+  cursor: pointer;
+  align-self: center;
+  font-family: "Rubik Glitch", sans-serif;
+  color: lightgray;
+  padding: 5px 10px;
+  font-size: 1.5rem;
+  animation: slideInFromBottom 1s ease-in-out, glitch 0s;
+}
+
+footer .text:hover {
+    animation-name: glitch, slideInFromBottom;
+    animation-duration: 3s, 0s;
+    animation-timing-function: ease-in-out, ease-in-out;
+
+}
+
+footer #links-wrapper {
+  border-radius: 10px;
+  padding-top: 5px;
+  transition: all 1s;
+}
+
+footer .icon-github:hover {
+  animation: rotate 1s ease-in-out;
+}
+footer .icon-linkedin:hover {
+  animation: fadeInOut .25s ease-in-out 2;
+}
+
+.hide {
+  height: 0;
+  opacity: 0;
+}
+.show {
+  height: auto;
+  opacity: 1;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes glitch {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0.2;
+    }
+    40% {
+        opacity: 0.8;
+    }
+    60% {
+        opacity: 0.3;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}

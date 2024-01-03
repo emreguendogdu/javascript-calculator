@@ -1,80 +1,19 @@
-$sky: #CEB4A7;
-$snow: #A5A0AB;
-$tree: #5F514F;
 $background: #202124;
-$calc-border: 2rem solid lighten($background, 8);
-$calc-border-hover: 2rem solid $tree;
+$sky: #ceb4a7;
+$snow: #a5a0ab;
+$tree: #5f514f;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
 }
 body {
-    width: 100vw;
-    height: 100vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $background;
-    #calculator {
-        display: flex;
-        font-size: 4rem;
-        min-width: 30vw;
-        flex-direction: column;
-        text-align: center;
-        border: $calc-border;
-        border-radius: 8%;
-        #display-container {
-            display: flex;
-            flex-direction: column;
-            max-width: 100%;
-            border-bottom: $calc-border;
-            background-color: lighten($background, 0.9);
-            padding: 5px 0;
-            span {
-                text-align: end;
-                font-size: 2rem;
-                opacity: 0.8;
-                padding-right: 1rem;
-            }
-            #display {
-                font-size: 4rem;
-                text-align: end;
-                padding-right: 1rem;
-            }
-        }
-        #button-container {
-            display: flex;
-            flex-direction: row-reverse;
-            flex-wrap: wrap;
-            button {
-                display: flex;
-                flex: 1 0 21%;
-                justify-content: center;
-                background-color: $background;
-                border: .5px solid black;
-                padding: 7.5px 0;
-                cursor: pointer;
-                font-size: 3rem;
-                color: white;
-            }
-            #zero {
-                flex-grow: 7.8;
-            }
-            button:hover {
-                background-color: lighten($background, 10);
-            }
-            .ops {
-                flex-grow: 1.5;
-                background-color: orange !important;
-            }
-            .ops:hover {
-                background-color: lighten(orange, 10) !important;
-            }
-        }
-    }
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background;
 }
-
