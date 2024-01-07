@@ -16,14 +16,13 @@ $calc-border-hover: 2rem solid $tree;
   animation: slideInFromTop 1s ease-in-out;
 
   #display-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    border-bottom: $calc-border;
     background-color: lighten($background, 0.9);
     padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 
-    span {
+    #temp-display {
       text-align: end;
       font-size: 2rem;
       opacity: 0.8;
@@ -31,6 +30,9 @@ $calc-border-hover: 2rem solid $tree;
     }
     #display {
       font-size: 4rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-width: 100%;
       text-align: end;
       padding-right: 1rem;
     }
@@ -39,6 +41,7 @@ $calc-border-hover: 2rem solid $tree;
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap;
+    border-top: $calc-border;
     button {
       display: flex;
       flex: 1 0 21%;
