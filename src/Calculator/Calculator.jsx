@@ -7,6 +7,7 @@ export default function Calculator() {
   const [display, setDisplay] = useState("")
   const [tempDisplay, setTempDisplay] = useState("")
   const ops = ["/", "*", "-", "+", "."]
+  const specialCharacters = ["Backspace", "+/-", "%"]
   const clearKeys = ["c", "C"]
 
   useEffect(() => {
@@ -22,25 +23,52 @@ export default function Calculator() {
     }
   })
 
-  function clearDisplay() {
+  function clearDisplay(key) {
+    if (key) {
+      setDisplay(0 + key)
+      setTempDisplay(0 + key)
+      return
+    }
+
     setDisplay("")
     setTempDisplay("")
   }
 
+  function checkOps(key) {
+    return ops.includes(key)
+  }
+
+  function handleBackspace() {
+    if (!display) return
+    setDisplay((prevDisplay) => prevDisplay.slice(0, -1))
+    setTempDisplay(display.slice(0, -1))
+  }
+
+  function handlePlusMinus() {
+    if (!display) return
+    setDisplay((display * -1).toString())
+    setTempDisplay((display * -1).toString())
+  }
+
+  function handlePercentage() {
+    if (!display) return
+    let percValue = (display / 100).toFixed(4).toString()
+    setDisplay(percValue)
+    setTempDisplay(percValue)
+  }
+
+  function handleDecimal() {
+    const numbers = display.split(/[+\-*/]/)
+    const lastNumber = numbers[numbers.length - 1]
+    if (lastNumber.includes(".")) return
+  }
+
   function handleValue(e) {
-    console.log(e.target.innerHTML)
     let key = e.target ? e.target.innerHTML : e
     const keyBefore = display.slice(-1)
-
-    function checkOps(key) {
-      return ops.includes(key)
-    }
-    if (
-      (clearKeys.includes(key) && !display) ||
-      (!display && key === "0") ||
-      (!display && key === "=")
-    )
-      return
+    if (clearKeys.includes(key) && !display) return
+    if (!display && key === "0") return
+    if (!display && key === "=") return
 
     if (display && key.toLowerCase() === "c") {
       return clearDisplay()
@@ -48,44 +76,20 @@ export default function Calculator() {
 
     // Empty display with ops
     if (!display && checkOps(key)) {
-      setDisplay(0 + key)
-      setTempDisplay(0 + key)
-      return
+      clearDisplay(key)
     }
 
-    // Delete characters with backspace
     if (key === "Backspace") {
-      if (!display) return
-
-      if (display === tempDisplay) return
-      setDisplay((prevDisplay) => prevDisplay.slice(0, -1))
-      setTempDisplay(display.slice(0, -1))
+      return handleBackspace()
     }
-
-    // Use +/- button to get opposite value
     if (key === "+/-") {
-      if (!display) return
-      console.log(key)
-      setDisplay((display * -1).toString())
-      setTempDisplay((display * -1).toString())
-      return
+      return handlePlusMinus()
     }
-
-    // Use % button to get the percentage
     if (key === "%") {
-      if (!display) return
-
-      let percValue = (display * 0.01).toFixed(4).toString()
-      setDisplay(percValue)
-      setTempDisplay(percValue)
-      return
+      return handlePercentage()
     }
-
-    // Make number decimal, not works if last number already is decimal
     if (key === ".") {
-      const numbers = display.split(/[+\-*/]/)
-      const lastNumber = numbers[numbers.length - 1]
-      if (lastNumber.includes(".")) return
+      return handleDecimal()
     }
 
     // 5 * - + 5 === 10
